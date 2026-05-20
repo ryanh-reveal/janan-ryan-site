@@ -1,0 +1,126 @@
+---
+import Layout from './Layout.astro';
+
+interface Frontmatter {
+	title: string;
+	description?: string;
+	eyebrow?: string;
+	intro?: string;
+}
+
+const { frontmatter } = Astro.props as { frontmatter: Frontmatter };
+---
+
+<Layout title={`${frontmatter.title} | NZ Wedding Guide`} description={frontmatter.description}>
+	<section class="detail panel">
+		<p class="eyebrow">{frontmatter.eyebrow ?? 'Guide section'}</p>
+		<h1>{frontmatter.title}</h1>
+		{frontmatter.intro && <p class="intro">{frontmatter.intro}</p>}
+
+		<div class="prose">
+			<slot />
+		</div>
+
+		<a class="back-link" href={import.meta.env.BASE_URL}>Back to home</a>
+	</section>
+
+	<style>
+		.detail {
+			padding: 2rem;
+			display: grid;
+			gap: 1.25rem;
+		}
+
+		.eyebrow {
+			margin: 0;
+			text-transform: uppercase;
+			letter-spacing: 0.12em;
+			font-size: 0.8rem;
+			font-weight: 700;
+			color: var(--accent);
+		}
+
+		h1,
+		p {
+			margin: 0;
+		}
+
+		h1 {
+			font-size: clamp(2.3rem, 5vw, 4.2rem);
+			line-height: 0.96;
+			max-width: 12ch;
+		}
+
+		.intro {
+			max-width: 62ch;
+			font-size: 1.06rem;
+			line-height: 1.7;
+			color: var(--muted);
+		}
+
+		.prose {
+			max-width: 64ch;
+			padding: 1.35rem;
+			border-radius: 22px;
+			background: var(--surface-strong);
+			border: 1px solid rgba(29, 95, 90, 0.12);
+			line-height: 1.7;
+			color: var(--muted);
+		}
+
+		.prose :global(h2),
+		.prose :global(h3) {
+			margin: 0 0 0.85rem;
+			line-height: 1.15;
+			color: var(--text);
+		}
+
+		.prose :global(h2) {
+			font-size: 1.35rem;
+			margin-top: 0;
+		}
+
+		.prose :global(h3) {
+			font-size: 1.1rem;
+			margin-top: 1.4rem;
+		}
+
+		.prose :global(p),
+		.prose :global(ul),
+		.prose :global(ol) {
+			margin: 0 0 1rem;
+		}
+
+		.prose :global(ul),
+		.prose :global(ol) {
+			padding-left: 1.2rem;
+		}
+
+		.prose :global(li + li) {
+			margin-top: 0.45rem;
+		}
+
+		.prose :global(strong) {
+			color: var(--text);
+		}
+
+		.back-link {
+			width: fit-content;
+			padding: 0.8rem 1rem;
+			border-radius: 999px;
+			background: var(--accent-soft);
+			color: var(--accent);
+			font-weight: 600;
+		}
+
+		@media (max-width: 640px) {
+			.detail {
+				padding: 1.3rem;
+			}
+
+			.prose {
+				padding: 1.1rem;
+			}
+		}
+	</style>
+</Layout>
