@@ -17,13 +17,15 @@ const {
 	description = 'Travel guide for wedding guests visiting New Zealand.',
 	navLinks = defaultNavLinks,
 } = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
-		<link rel="icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
+		<link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+		<link rel="icon" href={`${base}favicon.ico`} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
@@ -157,12 +159,12 @@ const {
 	<body>
 		<div class="site-shell">
 			<header class="site-header">
-				<a class="site-title" href={import.meta.env.BASE_URL}>
+				<a class="site-title" href={base}>
 					<strong>NZ Wedding Guide</strong>
 					<span>Travel notes for out-of-town guests</span>
 				</a>
 				<nav class="site-nav" aria-label="Primary">
-					{navLinks.map((link) => <a href={`${import.meta.env.BASE_URL}${link.href.replace(/^\//, '')}`}>{link.label}</a>)}
+					{navLinks.map((link) => <a href={`${base}${link.href.replace(/^\//, '')}`}>{link.label}</a>)}
 				</nav>
 			</header>
 			<main>

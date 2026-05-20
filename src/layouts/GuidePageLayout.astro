@@ -9,6 +9,8 @@ interface Frontmatter {
 }
 
 const { frontmatter } = Astro.props as { frontmatter: Frontmatter };
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <Layout title={`${frontmatter.title} | NZ Wedding Guide`} description={frontmatter.description}>
@@ -21,7 +23,7 @@ const { frontmatter } = Astro.props as { frontmatter: Frontmatter };
 			<slot />
 		</div>
 
-		<a class="back-link" href={import.meta.env.BASE_URL}>Back to home</a>
+		<a class="back-link" href={base}>Back to home</a>
 	</section>
 
 	<style>
