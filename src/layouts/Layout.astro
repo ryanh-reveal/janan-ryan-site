@@ -40,10 +40,8 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 				margin: 0;
 				min-height: 100vh;
 				font-family: "Avenir Next", "Segoe UI", sans-serif;
-				background:
-					radial-gradient(circle at top left, var(--bg-glow-warm), transparent 28%),
-					linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg) 100%);
-				color: var(--text);
+				background: var(--bg-canvas);
+				color: var(--text-primary);
 			}
 
 			a {
@@ -77,7 +75,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 			}
 
 			.site-title span {
-				color: var(--muted);
+				color: var(--text-muted);
 				font-size: 0.95rem;
 			}
 
@@ -90,9 +88,9 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
 			.site-nav a {
 				padding: 0.65rem 0.9rem;
-				border: 1px solid var(--line);
+				border: 1px solid var(--border-subtle);
 				border-radius: 999px;
-				background: var(--nav-surface);
+				background: var(--nav-pill-bg);
 				font-size: 0.95rem;
 				transition:
 					transform 180ms ease,
@@ -103,8 +101,9 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 			.site-nav a:hover,
 			.site-nav a:focus-visible {
 				transform: translateY(-1px);
-				border-color: var(--nav-hover-line);
-				background: var(--accent-soft);
+				border-color: var(--nav-pill-border-hover);
+				background: var(--action-primary-soft);
+				box-shadow: 0 0 0 3px var(--focus-ring);
 				outline: none;
 			}
 
@@ -113,11 +112,11 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 			}
 
 			.panel {
-				background: var(--surface);
+				background: var(--bg-panel);
 				backdrop-filter: blur(12px);
-				border: 1px solid var(--panel-line);
+				border: 1px solid var(--border-panel);
 				border-radius: 28px;
-				box-shadow: var(--shadow);
+				box-shadow: var(--surface-shadow);
 			}
 
 			@media (max-width: 840px) {

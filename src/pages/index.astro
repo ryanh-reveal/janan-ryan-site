@@ -79,7 +79,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 			letter-spacing: 0.12em;
 			font-size: 0.8rem;
 			font-weight: 700;
-			color: var(--accent);
+			color: var(--action-primary);
 		}
 
 		h1,
@@ -98,7 +98,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 			font-size: 1.1rem;
 			line-height: 1.7;
 			max-width: 60ch;
-			color: var(--muted);
+			color: var(--text-muted);
 		}
 
 		.hero-aside {
@@ -107,14 +107,12 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 			gap: 0.9rem;
 			padding: 1.4rem;
 			border-radius: 22px;
-			background:
-				linear-gradient(180deg, var(--hero-aside-gradient-start), var(--hero-aside-gradient-end)),
-				linear-gradient(135deg, var(--hero-aside-overlay), transparent);
-			color: var(--hero-aside-text);
+			background: var(--hero-aside-bg);
+			color: var(--text-on-accent);
 		}
 
 		.hero-aside p {
-			color: var(--hero-aside-muted);
+			color: var(--text-on-accent-muted);
 		}
 
 		.content-grid {
@@ -149,8 +147,8 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 			gap: 0.65rem;
 			padding: 1.25rem;
 			border-radius: 22px;
-			background: var(--surface-strong);
-			border: 1px solid var(--prose-line);
+			background: var(--bg-card);
+			border: 1px solid var(--border-content);
 			transition:
 				transform 180ms ease,
 				border-color 180ms ease,
@@ -163,15 +161,20 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
 		.card span {
 			line-height: 1.55;
-			color: var(--muted);
+			color: var(--text-muted);
 		}
 
 		.card:hover,
 		.card:focus-visible {
 			transform: translateY(-2px);
-			border-color: var(--card-hover-line);
-			box-shadow: var(--card-hover-shadow);
+			border-color: var(--interactive-border-hover);
+			box-shadow: var(--interactive-shadow-hover);
 			outline: none;
+		}
+
+		.card:focus-visible {
+			outline: 3px solid var(--focus-ring);
+			outline-offset: 2px;
 		}
 
 		.facts ul {
@@ -186,7 +189,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 			display: grid;
 			gap: 0.3rem;
 			padding-bottom: 0.95rem;
-			border-bottom: 1px solid var(--line);
+			border-bottom: 1px solid var(--border-subtle);
 		}
 
 		.facts li:last-child {
@@ -198,7 +201,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 			font-size: 0.88rem;
 			text-transform: uppercase;
 			letter-spacing: 0.08em;
-			color: var(--accent-warm);
+			color: var(--action-secondary);
 		}
 
 		.facts strong {

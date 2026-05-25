@@ -1,27 +1,45 @@
 :root {
 	color-scheme: light;
-	--bg: #f6f2ea;
-	--surface: #fffcf7e0;
-	--surface-strong: #fffaf2;
-	--text: #1f2a2a;
-	--muted: #576161;
-	--line: #1f2a2a1f;
-	--accent: #1d5f5a;
-	--accent-soft: #d7ebe7;
-	--accent-warm: #c9774d;
-	--shadow: 0 24px 60px #202c2c1f;
+	/* Primitive palette: single source of truth for brand colors. */
+	--color-gold-300: #f7e4db;
+	--color-green-900: #1c4f3a;
+	--color-rose-700: #9c4a63;
+	--color-rose-800: #7f3d52;
+	--color-rose-100: #f3e1e8;
+	--color-rose-100-alpha: #fff8f4e8;
+	--color-ivory-000: #fffdf9;
+	--color-ivory-050-alpha: #fff9f3cc;
+	--color-white-80: #ffffffc4;
+	--color-smoke-500-alpha: #a8929657;
+	--color-green-900-alpha-15: #1c4f3a26;
+	--color-green-900-alpha-24: #1c4f3a24;
+	--color-green-900-alpha-45: #1c4f3a73;
+	--color-rose-700-alpha-38: #9c4a6361;
+	--color-rose-700-alpha-46: #9c4a6375;
+	--color-rose-700-alpha-16: #9c4a6329;
+	--color-ivory-100: #fff8f1;
+	--color-ivory-200-alpha: #fff0e1cf;
+	--color-text-muted: #4f5f58;
 
-	--bg-glow-warm: #c9774d29;
-	--bg-gradient-start: #fbf7f1;
-	--nav-surface: #ffffffad;
-	--nav-hover-line: #1d5f5a4d;
-	--panel-line: #ffffffb3;
-	--prose-line: #1d5f5a1f;
-	--hero-aside-gradient-start: #1d5f5aeb;
-	--hero-aside-gradient-end: #184c49eb;
-	--hero-aside-overlay: #ffffff14;
-	--hero-aside-text: #f7f4ef;
-	--hero-aside-muted: #f7f4efc7;
-	--card-hover-line: #1d5f5a52;
-	--card-hover-shadow: 0 18px 32px #1d5f5a1f;
+	/* Semantic tokens: use these throughout components. */
+	--bg-canvas: var(--color-gold-300);
+	--bg-panel: var(--color-rose-100-alpha);
+	--bg-card: var(--color-ivory-000);
+	--text-primary: var(--color-green-900);
+	--text-muted: var(--color-text-muted);
+	--border-subtle: var(--color-green-900-alpha-15);
+	--border-panel: var(--color-white-80);
+	--border-content: var(--color-smoke-500-alpha);
+	--action-primary: var(--color-rose-700);
+	--action-primary-soft: var(--color-rose-100);
+	--action-secondary: var(--color-rose-800);
+	--hero-aside-bg: #8c7ab8;
+	--text-on-accent: var(--color-ivory-100);
+	--text-on-accent-muted: var(--color-ivory-200-alpha);
+	--nav-pill-bg: var(--color-ivory-050-alpha);
+	--nav-pill-border-hover: var(--color-rose-700-alpha-38);
+	--interactive-border-hover: var(--color-rose-700-alpha-46);
+	--interactive-shadow-hover: 0 18px 32px var(--color-rose-700-alpha-16);
+	--surface-shadow: 0 24px 60px var(--color-green-900-alpha-24);
+	--focus-ring: var(--color-green-900-alpha-45);
 }

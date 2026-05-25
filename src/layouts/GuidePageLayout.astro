@@ -39,7 +39,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 			letter-spacing: 0.12em;
 			font-size: 0.8rem;
 			font-weight: 700;
-			color: var(--accent);
+			color: var(--action-primary);
 		}
 
 		h1,
@@ -57,24 +57,24 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 			max-width: 62ch;
 			font-size: 1.06rem;
 			line-height: 1.7;
-			color: var(--muted);
+			color: var(--text-muted);
 		}
 
 		.prose {
 			max-width: 64ch;
 			padding: 1.35rem;
 			border-radius: 22px;
-			background: var(--surface-strong);
-			border: 1px solid var(--prose-line);
+			background: var(--bg-card);
+			border: 1px solid var(--border-content);
 			line-height: 1.7;
-			color: var(--muted);
+			color: var(--text-muted);
 		}
 
 		.prose :global(h2),
 		.prose :global(h3) {
 			margin: 0 0 0.85rem;
 			line-height: 1.15;
-			color: var(--text);
+			color: var(--text-primary);
 		}
 
 		.prose :global(h2) {
@@ -103,16 +103,26 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 		}
 
 		.prose :global(strong) {
-			color: var(--text);
+			color: var(--text-primary);
 		}
 
 		.back-link {
 			width: fit-content;
 			padding: 0.8rem 1rem;
 			border-radius: 999px;
-			background: var(--accent-soft);
-			color: var(--accent);
+			background: var(--action-primary-soft);
+			color: var(--action-primary);
 			font-weight: 600;
+			transition:
+				transform 180ms ease,
+				box-shadow 180ms ease;
+		}
+
+		.back-link:hover,
+		.back-link:focus-visible {
+			transform: translateY(-1px);
+			box-shadow: 0 0 0 3px var(--focus-ring);
+			outline: none;
 		}
 
 		@media (max-width: 640px) {
