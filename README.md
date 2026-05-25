@@ -1,43 +1,69 @@
-# Astro Starter Kit: Minimal
+# NZ Wedding Guide
+
+Astro site for wedding guests traveling to New Zealand.
+
+## Local Development
+
+Run commands from the repository root:
 
 ```sh
-npm create astro@latest -- --template minimal
+fnm use
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Build for production:
 
-## 🚀 Project Structure
+```sh
+fnm use
+npm run build
+```
 
-Inside of your Astro project, you'll see the following folders and files:
+## Project Structure
 
 ```text
 /
 ├── public/
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── data/
+│   ├── layouts/
+│   ├── pages/
+│   └── styles/
+│       └── theme.css
+├── astro.config.mjs
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Theme Palette
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+All site colors are centralized in:
 
-Any static assets, like images, can be placed in the `public/` directory.
+- `src/styles/theme.css`
 
-## 🧞 Commands
+The base layout imports that file once, and all page/layout styles consume those CSS custom properties.
 
-All commands are run from the root of the project, from a terminal:
+### Editing Colors
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+1. Open `src/styles/theme.css`.
+1. Update token values using hex codes.
+1. Save and refresh the site.
 
-## 👀 Want to learn more?
+The current theme uses standard hex and hex-with-alpha (`#RRGGBBAA`) values.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Examples:
+
+- `#1d5f5a` (solid color)
+- `#ffffffb3` (color with alpha)
+
+### Token Groups
+
+- Base surfaces/text: `--bg`, `--surface`, `--surface-strong`, `--text`, `--muted`
+- Brand accents: `--accent`, `--accent-soft`, `--accent-warm`
+- Borders and lines: `--line`, `--panel-line`, `--prose-line`, `--nav-hover-line`, `--card-hover-line`
+- Effects and overlays: `--shadow`, `--card-hover-shadow`, `--bg-glow-warm`, `--hero-aside-overlay`
+- Hero-specific tones: `--hero-aside-gradient-start`, `--hero-aside-gradient-end`, `--hero-aside-text`, `--hero-aside-muted`
+
+### Notes
+
+- Keep token names stable and only change values for safer visual updates.
+- Asset files (for example `public/favicon.svg`) are outside the CSS theme system.

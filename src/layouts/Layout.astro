@@ -1,5 +1,6 @@
 ---
 import { navLinks as defaultNavLinks } from '../data/site';
+import '../styles/theme.css';
 
 interface NavLink {
 	href: string;
@@ -31,21 +32,6 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 		<meta name="description" content={description} />
 		<title>{title}</title>
 		<style>
-			:root {
-				color-scheme: light;
-				--bg: #f6f2ea;
-				--surface: rgba(255, 252, 247, 0.88);
-				--surface-strong: #fffaf2;
-				--text: #1f2a2a;
-				--muted: #576161;
-				--line: rgba(31, 42, 42, 0.12);
-				--accent: #1d5f5a;
-				--accent-soft: #d7ebe7;
-				--accent-warm: #c9774d;
-				--shadow: 0 24px 60px rgba(32, 44, 44, 0.12);
-				font-family: "Avenir Next", "Segoe UI", sans-serif;
-			}
-
 			* {
 				box-sizing: border-box;
 			}
@@ -53,9 +39,10 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 			body {
 				margin: 0;
 				min-height: 100vh;
+				font-family: "Avenir Next", "Segoe UI", sans-serif;
 				background:
-					radial-gradient(circle at top left, rgba(201, 119, 77, 0.16), transparent 28%),
-					linear-gradient(180deg, #fbf7f1 0%, var(--bg) 100%);
+					radial-gradient(circle at top left, var(--bg-glow-warm), transparent 28%),
+					linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg) 100%);
 				color: var(--text);
 			}
 
@@ -105,7 +92,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 				padding: 0.65rem 0.9rem;
 				border: 1px solid var(--line);
 				border-radius: 999px;
-				background: rgba(255, 255, 255, 0.68);
+				background: var(--nav-surface);
 				font-size: 0.95rem;
 				transition:
 					transform 180ms ease,
@@ -116,7 +103,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 			.site-nav a:hover,
 			.site-nav a:focus-visible {
 				transform: translateY(-1px);
-				border-color: rgba(29, 95, 90, 0.3);
+				border-color: var(--nav-hover-line);
 				background: var(--accent-soft);
 				outline: none;
 			}
@@ -128,7 +115,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 			.panel {
 				background: var(--surface);
 				backdrop-filter: blur(12px);
-				border: 1px solid rgba(255, 255, 255, 0.7);
+				border: 1px solid var(--panel-line);
 				border-radius: 28px;
 				box-shadow: var(--shadow);
 			}
