@@ -19,6 +19,41 @@ fnm use
 npm run build
 ```
 
+## Discount Codes (Not In Repo)
+
+Accommodation discount codes are rendered from environment variables so they are not committed to GitHub.
+
+Variables:
+
+- `OAKS_DISCOUNT_CODE`
+- `TRYP_DISCOUNT_CODE`
+
+Local usage:
+
+1. Create a local `.env` or `.env.local` file (both are gitignored).
+1. Add the codes you need, for example:
+
+```env
+OAKS_DISCOUNT_CODE=YOUR_OAKS_CODE
+TRYP_DISCOUNT_CODE=YOUR_TRYP_CODE
+```
+
+1. Run `npm run dev` or `npm run build`.
+
+Deployment usage:
+
+1. Add `OAKS_DISCOUNT_CODE` and `TRYP_DISCOUNT_CODE` in your host's environment variable settings.
+1. Rebuild/redeploy the site.
+
+Note: this keeps the code out of the repository, but it is still visible to anyone who can access the page source on the live site.
+
+In markdown pages, use the component with a key:
+
+```astro
+<DiscountCode codeKey="OAKS_DISCOUNT_CODE" />
+<DiscountCode codeKey="TRYP_DISCOUNT_CODE" />
+```
+
 ## Project Structure
 
 ```text

@@ -1,0 +1,17 @@
+---
+interface Props {
+	codeKey: 'OAKS_DISCOUNT_CODE' | 'TRYP_DISCOUNT_CODE';
+	fallbackText?: string;
+}
+
+const { codeKey, fallbackText = 'Discount code will be shared soon.' } = Astro.props as Props;
+
+const discountCodeByKey = {
+	OAKS_DISCOUNT_CODE: import.meta.env.OAKS_DISCOUNT_CODE,
+	TRYP_DISCOUNT_CODE: import.meta.env.TRYP_DISCOUNT_CODE,
+};
+
+const discountCode = discountCodeByKey[codeKey];
+---
+
+{discountCode ? <strong>{discountCode}</strong> : <em>{fallbackText}</em>}
