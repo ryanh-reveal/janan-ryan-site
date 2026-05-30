@@ -31,6 +31,9 @@ jobs:
         run: npm ci
 
       - name: Build Astro site
+        env:
+          OAKS_DISCOUNT_CODE: ${{ secrets.OAKS_DISCOUNT_CODE }}
+          TRYP_DISCOUNT_CODE: ${{ secrets.TRYP_DISCOUNT_CODE }}
         run: npm run build
 
       - name: Upload artifact
